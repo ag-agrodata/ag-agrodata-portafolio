@@ -1,0 +1,158 @@
+/* ============================================
+   ANIMACIONES DE MARCA
+   ============================================ */
+
+/* 1. Fade In Básico (Scroll Reveal) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  will-change: opacity, transform; /* Optimización de rendimiento para el navegador */
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 2. Barras que Crecen (Manual de Marca §05) */
+/* Nota: El color y ancho específicos se definen en style.css (.css-chart.bars .bar) */
+.bar,
+.mockup-bar {
+  height: 0; /* Estado inicial para la animación */
+  transition: height 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+
+.bar.visible,
+.mockup-bar.visible {
+  /* La altura final se define inline por el HTML o el JS observer */
+}
+
+.bar-label,
+.mockup-bar-label {
+  position: absolute;
+  bottom: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.75rem;
+  color: #666;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.bar-value {
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--verde);
+  opacity: 0;
+  transition: opacity 0.6s ease 1s; /* Delay para que aparezca después de que la barra crece */
+}
+
+.bar.visible .bar-value,
+.mockup-bar.visible .bar-value {
+  opacity: 1;
+}
+
+/* 3. Contadores Animados (Números que emergen) */
+.counter {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.5rem; /* Alineado con los KPIs de los mockups */
+  color: var(--verde);
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.counter-suffix {
+  font-size: 1.25rem;
+  color: var(--verde);
+  margin-left: 0.25rem;
+}
+
+/* 4. Semáforo Animado (CSS Puro con Keyframes) */
+.semaforo {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.semaforo-item {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 8px;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.8);
+  animation: semaforoEntrada 0.6s ease forwards;
+  will-change: opacity, transform;
+}
+
+/* Delays escalonados para efecto cascada */
+.semaforo-item:nth-child(1) { animation-delay: 0.2s; }
+.semaforo-item:nth-child(2) { animation-delay: 0.4s; }
+.semaforo-item:nth-child(3) { animation-delay: 0.6s; }
+
+@keyframes semaforoEntrada {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.semaforo-alto {
+  background: rgba(239, 26, 33, 0.1);
+  border: 2px solid #EF1A21;
+}
+
+.semaforo-medio {
+  background: rgba(240, 167, 67, 0.1);
+  border: 2px solid #F0A743;
+}
+
+.semaforo-estable {
+  background: rgba(45, 180, 83, 0.1);
+  border: 2px solid #2DB453;
+}
+
+.semaforo-numero {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+}
+
+.semaforo-alto .semaforo-numero { color: #EF1A21; }
+.semaforo-medio .semaforo-numero { color: #F0A743; }
+.semaforo-estable .semaforo-numero { color: #2DB453; }
+
+.semaforo-label {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+/* 5. Responsive Animations */
+@media (max-width: 768px) {
+  .semaforo {
+    flex-direction: column;
+  }
+
+  .counter {
+    font-size: 2rem;
+  }
+
+  .counter-suffix {
+    font-size: 1rem;
+  }
+
+  .bar-label,
+  .mockup-bar-label {
+    font-size: 0.65rem;
+    bottom: -1.2rem;
+  }
+}
