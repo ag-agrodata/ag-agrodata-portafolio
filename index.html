@@ -42,6 +42,11 @@
       }
     }
     </script>
+    <!-- SEO Multilingüe -->
+    <link rel="alternate" hreflang="es" href="https://ag-agrodata.github.io/" />
+    <link rel="alternate" hreflang="en" href="https://ag-agrodata.github.io/index-en.html" />
+    <link rel="alternate" hreflang="pt" href="https://ag-agrodata.github.io/index-pt.html" />
+    <link rel="alternate" hreflang="x-default" href="https://ag-agrodata.github.io/" />
 </head>
 <body>
 
@@ -61,12 +66,19 @@
           <span class="nav-toggle-bar"></span>
         </button>
         <ul class="nav-links" id="nav-links">
-          <li><a href="#problema">El problema</a></li>
+          <li><a href="#problema">Desafío</a></li>
           <li><a href="#metodo">Método</a></li>
           <li><a href="#casos">Casos</a></li>
           <li><a href="#herramientas">Herramientas</a></li>
           <li><a href="#recorrido">Recorrido</a></li>
           <li><a href="#contacto" class="nav-cta">Hablemos</a></li>
+          <li class="lang-selector">
+            <a href="index.html" class="lang-link">ES</a>
+            <span class="lang-sep">|</span>
+            <a href="index-en.html" class="lang-link">EN</a>
+            <span class="lang-sep">|</span>
+            <a href="index-pt.html" class="lang-link">PT</a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -417,6 +429,32 @@
     </section>
 
     <div class="section-divider" role="presentation"></div>
+
+    <!-- Lead Magnet: Descarga la Guía -->
+    <section class="section-lead-magnet">
+      <div class="container">
+        <div class="lead-magnet-card fade-in">
+          <div class="lead-magnet-content">
+            <p class="section-label" style="margin-bottom: 0.5rem;">Recurso Gratuito</p>
+            <h3>¿Tus datos agrícolas realmente se están usando?</h3>
+            <p>Descarga nuestra guía rápida y audita la madurez de tus datos en 10 minutos. Identifica los 5 errores más comunes en la agroindustria y cómo solucionarlos.</p>
+            <a href="assets/downloads/5-senales-datos-agricolas.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+              Descargar Checklist (PDF)
+            </a>
+          </div>
+          <div class="lead-magnet-visual" aria-hidden="true">
+            <!-- Icono representativo del PDF -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Contacto -->
     <section id="contacto" class="section-contacto section-dark" aria-labelledby="contacto-label">
